@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@supabase/supabase-js':
-        specifier: ^2.86.2
+        specifier: 2.86.2
         version: 2.86.2
       next:
         specifier: 14.2.3
