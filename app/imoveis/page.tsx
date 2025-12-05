@@ -82,9 +82,9 @@ async function getProperties(): Promise<Property[]> {
     .eq("ativo", true)
     .order("created_at", { ascending: false })
 
-  if (error || !data) return fallbackProperties
+  if (error || !data || !Array.isArray(data)) return fallbackProperties
 
-  return data as Property[]
+  return data as unknown as Property[]
 }
 
 function formatCurrency(value: number | null): string {
