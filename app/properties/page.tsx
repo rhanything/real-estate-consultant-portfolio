@@ -157,13 +157,20 @@ async function PropertiesPage(props: PropertiesPageProps) {
             <label htmlFor="city" className="block text-[11px] font-semibold text-neutral-700">
               Cidade
             </label>
-            <input
+            <select
               id="city"
               name="city"
               defaultValue={props.searchParams.city ?? ""}
-              placeholder="Ribeirão Preto"
               className="w-full rounded-lg border border-neutral-300 px-2.5 py-1.5 text-xs outline-none ring-emerald-500 focus:border-emerald-500 focus:ring-1"
-            />
+            >
+              <option value="">Todas</option>
+              <option value="Ribeirão Preto">Ribeirão Preto</option>
+              <option value="Brodowski">Brodowski</option>
+              <option value="Jardinópolis">Jardinópolis</option>
+              <option value="Pitangueiras">Pitangueiras</option>
+              <option value="Serrana">Serrana</option>
+              <option value="Sertãozinho">Sertãozinho</option>
+            </select>
           </div>
           <div className="space-y-1">
             <label htmlFor="minPrice" className="block text-[11px] font-semibold text-neutral-700">
