@@ -64,10 +64,40 @@ interface PropertiesPageSearchParams {
   reference?: string
 }
 
+function filterFallbackProperties(params?: PropertiesPageSearchParams): PropertyCardData[] {
+  if (!params) return fallbackProperties
+
+  return fallbackProperties.filter((property) => {
+    if (params.city && params.city.trim()) {
+      if (property.city !== params.city.trim()) return false
+    }
+
+    const minPriceNumber = params.minPrice ? Number(params.minPrice) : NaN
+    const maxPriceNumber = params.maxPrice ? Number(params.maxPrice) : NaN
+
+    if (!Number.isNaN(minPriceNumber) && minPriceNumber > 0) {
+      if (!property.salePrice || property.salePrice < minPriceNumber) return false
+    }
+
+    if (!Number.isNaN(maxPriceNumber) && maxPriceNumber > 0) {
+      if (!property.salePrice || property.salePrice > maxPriceNumber) return false
+    }
+
+    if (params.reference && params.reference.trim()) {
+      if (!property.reference) return false
+      if (!property.reference.toLowerCase().includes(params.reference.trim().toLowerCase())) {
+        return false
+      }
+    }
+
+    return true
+  })
+}
+
 async function getProperties(params?: PropertiesPageSearchParams): Promise<PropertyCardData[]> {
   const supabase = createSupabaseClient()
 
-  if (!supabase) return fallbackProperties
+  if (!supabase) return filterFallbackProperties(params)
 
   let query = supabase
     .from("imoveis")
