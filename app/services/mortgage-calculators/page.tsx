@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-function SimuladoresPage() {
+function MortgageCalculatorsPage() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-10">
       <header className="mb-6 space-y-3">
@@ -16,19 +16,19 @@ function SimuladoresPage() {
         </p>
       </header>
       <section className="grid gap-4 sm:grid-cols-2">
-        <SimuladorCard
+        <SimulatorCard
           bankName="Caixa Econômica Federal"
           href="https://www.caixa.gov.br/voce/habitacao/Paginas/default.aspx"
         />
-        <SimuladorCard
+        <SimulatorCard
           bankName="Banco do Brasil"
           href="https://www.bb.com.br/site/pra-voce/imoveis/"
         />
-        <SimuladorCard
+        <SimulatorCard
           bankName="Bradesco"
           href="https://banco.bradesco/html/classic/produtos-servicos/financiamentos/imoveis.shtm"
         />
-        <SimuladorCard
+        <SimulatorCard
           bankName="Santander"
           href="https://www.santander.com.br/credito-imobiliario"
         />
@@ -37,12 +37,12 @@ function SimuladoresPage() {
   )
 }
 
-interface SimuladorCardProps {
+interface SimulatorCardProps {
   bankName: string
   href: string
 }
 
-function SimuladorCard(props: SimuladorCardProps) {
+function SimulatorCard(props: SimulatorCardProps) {
   return (
     <article className="flex flex-col justify-between rounded-2xl border border-neutral-200 bg-white p-5 text-sm text-neutral-700 shadow-sm">
       <div className="mb-3">
@@ -65,6 +65,6 @@ function SimuladorCard(props: SimuladorCardProps) {
   )
 }
 
-export default SimuladoresPage
+export default MortgageCalculatorsPage
 
 

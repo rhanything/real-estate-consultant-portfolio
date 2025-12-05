@@ -31,16 +31,16 @@ export default function RootLayout(props: RootLayoutProps) {
                 <Link href="/" className="hover:text-emerald-700">
                   Início
                 </Link>
-                <Link href="/imoveis" className="hover:text-emerald-700">
+                <Link href="/properties" className="hover:text-emerald-700">
                   Imóveis
                 </Link>
-                <Link href="/empresa" className="hover:text-emerald-700">
+                <Link href="/about" className="hover:text-emerald-700">
                   Empresa
                 </Link>
-                <Link href="/servicos" className="hover:text-emerald-700">
+                <Link href="/services" className="hover:text-emerald-700">
                   Serviços
                 </Link>
-                <Link href="/contato" className="hover:text-emerald-700">
+                <Link href="/contact" className="hover:text-emerald-700">
                   Contato
                 </Link>
               </nav>

@@ -1,49 +1,63 @@
 import { createSupabaseClient } from "@/lib/supabase/client"
-import { PropertyCard, type Property } from "@/components/property-card/PropertyCard"
+import { PropertyCard, type PropertyCardData } from "@/components/property-card/PropertyCard"
 
-const fallbackProperties: Property[] = [
+interface PropertyRow {
+  id: string
+  titulo: string
+  cidade: string
+  bairro: string
+  quartos: number | null
+  suites: number | null
+  vagas: number | null
+  metragem: number | null
+  preco_venda: number | null
+  referencia: string | null
+  lancamento: boolean | null
+}
+
+const fallbackProperties: PropertyCardData[] = [
   {
     id: "1",
-    titulo: "Apartamento moderno no Jardim Botânico",
-    cidade: "Ribeirão Preto",
-    bairro: "Jardim Botânico",
-    quartos: 3,
+    title: "Apartamento moderno no Jardim Botânico",
+    city: "Ribeirão Preto",
+    neighborhood: "Jardim Botânico",
+    bedrooms: 3,
     suites: 1,
-    vagas: 2,
-    metragem: 95,
-    preco_venda: 780000,
-    referencia: "REF-101",
-    lancamento: false
+    parkingSpaces: 2,
+    areaInSquareMeters: 95,
+    salePrice: 780000,
+    reference: "REF-101",
+    isLaunch: false
   },
   {
     id: "2",
-    titulo: "Casa térrea aconchegante",
-    cidade: "Ribeirão Preto",
-    bairro: "City Ribeirão",
-    quartos: 3,
+    title: "Casa térrea aconchegante",
+    city: "Ribeirão Preto",
+    neighborhood: "City Ribeirão",
+    bedrooms: 3,
     suites: 1,
-    vagas: 2,
-    metragem: 140,
-    preco_venda: 980000,
-    referencia: "REF-102",
-    lancamento: false
+    parkingSpaces: 2,
+    areaInSquareMeters: 140,
+    salePrice: 980000,
+    reference: "REF-102",
+    isLaunch: false
   },
   {
     id: "3",
-    titulo: "Lote em condomínio fechado",
-    cidade: "Sertãozinho",
-    bairro: "Condomínio Reserva Verde",
-    quartos: null,
+    title: "Lote em condomínio fechado",
+    city: "Sertãozinho",
+    neighborhood: "Condomínio Reserva Verde",
+    bedrooms: null,
     suites: null,
-    vagas: null,
-    metragem: 300,
-    preco_venda: 260000,
-    referencia: "REF-103",
-    lancamento: true
+    parkingSpaces: null,
+    areaInSquareMeters: 300,
+    salePrice: 260000,
+    reference: "REF-103",
+    isLaunch: true
   }
 ]
 
-async function getProperties(): Promise<Property[]> {
+async function getProperties(): Promise<PropertyCardData[]> {
   const supabase = createSupabaseClient()
 
   if (!supabase) return fallbackProperties
@@ -71,7 +85,21 @@ async function getProperties(): Promise<Property[]> {
 
   if (error || !data || !Array.isArray(data)) return fallbackProperties
 
-  return data as unknown as Property[]
+  const rows = data as unknown as PropertyRow[]
+
+  return rows.map((row) => ({
+    id: row.id,
+    title: row.titulo,
+    city: row.cidade,
+    neighborhood: row.bairro,
+    bedrooms: row.quartos,
+    suites: row.suites,
+    parkingSpaces: row.vagas,
+    areaInSquareMeters: row.metragem,
+    salePrice: row.preco_venda,
+    reference: row.referencia,
+    isLaunch: row.lancamento
+  }))
 }
 
 async function PropertiesPage() {

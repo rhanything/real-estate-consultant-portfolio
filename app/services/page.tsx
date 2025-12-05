@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { PageHeader } from "@/components/page-header/PageHeader"
 
-function ServicosPage() {
+function ServicesPage() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-10">
       <PageHeader
@@ -20,7 +20,7 @@ function ServicosPage() {
           </p>
           <div className="mt-auto">
             <Link
-              href="/servicos/cadastre-seu-imovel"
+              href="/services/list-your-property"
               className="inline-flex items-center rounded-full bg-emerald-600 px-4 py-1.5 text-xs font-semibold text-white transition hover:bg-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
             >
               Preencher formulário
@@ -37,7 +37,7 @@ function ServicosPage() {
           </p>
           <div className="mt-auto">
             <Link
-              href="/servicos/encontramos-para-voce"
+              href="/services/property-finder"
               className="inline-flex items-center rounded-full bg-emerald-600 px-4 py-1.5 text-xs font-semibold text-white transition hover:bg-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
             >
               Descrever o que busco
@@ -54,7 +54,7 @@ function ServicosPage() {
           </p>
           <div className="flex flex-wrap gap-3 text-xs">
             <Link
-              href="/servicos/simuladores"
+              href="/services/mortgage-calculators"
               className="inline-flex items-center rounded-full border border-neutral-300 px-4 py-1.5 font-semibold text-neutral-800 transition hover:border-neutral-400 hover:bg-neutral-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
             >
               Ver simuladores
@@ -66,6 +66,6 @@ function ServicosPage() {
   )
 }
 
-export default ServicosPage
+export default ServicesPage
 
 

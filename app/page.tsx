@@ -24,7 +24,7 @@ function HomePage() {
             Falar no WhatsApp
           </a>
           <Link
-            href="/contato"
+            href="/contact"
             className="rounded-full border border-neutral-300 px-5 py-2 text-sm font-semibold text-neutral-800 transition hover:border-neutral-400 hover:bg-neutral-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
           >
             Ver opções de contato

@@ -1,6 +1,6 @@
 import { PageHeader } from "@/components/page-header/PageHeader"
 
-function EmpresaPage() {
+function AboutPage() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-10">
       <PageHeader
@@ -27,6 +27,6 @@ function EmpresaPage() {
   )
 }
 
-export default EmpresaPage
+export default AboutPage
 
 

@@ -1,16 +1,16 @@
-function EncontramosParaVocePage() {
+function ListYourPropertyPage() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-10">
       <header className="mb-6 space-y-3">
         <p className="text-sm font-semibold uppercase tracking-wide text-emerald-700">
-          Encontramos para você
+          Cadastre seu imóvel
         </p>
         <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
-          Conte o que você está buscando
+          Informações básicas do imóvel
         </h1>
         <p className="max-w-2xl text-sm text-neutral-600">
-          Preencha as informações abaixo para que a Lúcia possa selecionar imóveis alinhados com
-          o seu perfil, região e faixa de valor.
+          Preencha os dados abaixo para que a Lúcia possa analisar o seu imóvel e entrar em
+          contato com você.
         </p>
       </header>
       <section className="rounded-2xl border border-neutral-200 bg-white p-5 text-sm text-neutral-800 shadow-sm">
@@ -21,34 +21,34 @@ function EncontramosParaVocePage() {
           encType="text/plain"
         >
           <div className="space-y-1">
-            <label htmlFor="name" className="text-xs font-semibold text-neutral-800">
+            <label htmlFor="owner-name" className="text-xs font-semibold text-neutral-800">
               Seu nome
             </label>
             <input
-              id="name"
-              name="Nome"
+              id="owner-name"
+              name="Nome do proprietário"
               className="w-full rounded-lg border border-neutral-300 px-3 py-2 text-sm outline-none ring-emerald-500 focus:border-emerald-500 focus:ring-1"
               required
             />
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-1">
-              <label htmlFor="phone" className="text-xs font-semibold text-neutral-800">
+              <label htmlFor="owner-phone" className="text-xs font-semibold text-neutral-800">
                 Telefone / WhatsApp
               </label>
               <input
-                id="phone"
+                id="owner-phone"
                 name="Telefone"
                 className="w-full rounded-lg border border-neutral-300 px-3 py-2 text-sm outline-none ring-emerald-500 focus:border-emerald-500 focus:ring-1"
                 required
               />
             </div>
             <div className="space-y-1">
-              <label htmlFor="email" className="text-xs font-semibold text-neutral-800">
+              <label htmlFor="owner-email" className="text-xs font-semibold text-neutral-800">
                 E-mail
               </label>
               <input
-                id="email"
+                id="owner-email"
                 name="E-mail"
                 type="email"
                 className="w-full rounded-lg border border-neutral-300 px-3 py-2 text-sm outline-none ring-emerald-500 focus:border-emerald-500 focus:ring-1"
@@ -57,59 +57,58 @@ function EncontramosParaVocePage() {
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-1">
-              <label htmlFor="desired-type" className="text-xs font-semibold text-neutral-800">
-                Tipo de imóvel desejado
+              <label htmlFor="type" className="text-xs font-semibold text-neutral-800">
+                Tipo de imóvel
               </label>
               <input
-                id="desired-type"
-                name="Tipo de imóvel desejado"
+                id="type"
+                name="Tipo de imóvel"
                 placeholder="Casa, apartamento, terreno..."
                 className="w-full rounded-lg border border-neutral-300 px-3 py-2 text-sm outline-none ring-emerald-500 focus:border-emerald-500 focus:ring-1"
+                required
               />
             </div>
             <div className="space-y-1">
-              <label htmlFor="desired-city" className="text-xs font-semibold text-neutral-800">
-                Cidade / região
+              <label htmlFor="city" className="text-xs font-semibold text-neutral-800">
+                Cidade
               </label>
               <input
-                id="desired-city"
-                name="Cidade / região"
-                placeholder="Ex.: Ribeirão Preto, região sul..."
+                id="city"
+                name="Cidade"
+                placeholder="Ribeirão Preto, Brodowski..."
                 className="w-full rounded-lg border border-neutral-300 px-3 py-2 text-sm outline-none ring-emerald-500 focus:border-emerald-500 focus:ring-1"
-              />
-            </div>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="space-y-1">
-              <label htmlFor="min-value" className="text-xs font-semibold text-neutral-800">
-                Valor mínimo
-              </label>
-              <input
-                id="min-value"
-                name="Valor mínimo"
-                placeholder="Ex.: R$ 300.000"
-                className="w-full rounded-lg border border-neutral-300 px-3 py-2 text-sm outline-none ring-emerald-500 focus:border-emerald-500 focus:ring-1"
-              />
-            </div>
-            <div className="space-y-1">
-              <label htmlFor="max-value" className="text-xs font-semibold text-neutral-800">
-                Valor máximo
-              </label>
-              <input
-                id="max-value"
-                name="Valor máximo"
-                placeholder="Ex.: R$ 800.000"
-                className="w-full rounded-lg border border-neutral-300 px-3 py-2 text-sm outline-none ring-emerald-500 focus:border-emerald-500 focus:ring-1"
+                required
               />
             </div>
           </div>
           <div className="space-y-1">
-            <label htmlFor="preferences" className="text-xs font-semibold text-neutral-800">
-              Preferências e observações
+            <label htmlFor="neighborhood" className="text-xs font-semibold text-neutral-800">
+              Bairro
+            </label>
+            <input
+              id="neighborhood"
+              name="Bairro"
+              className="w-full rounded-lg border border-neutral-300 px-3 py-2 text-sm outline-none ring-emerald-500 focus:border-emerald-500 focus:ring-1"
+            />
+          </div>
+          <div className="space-y-1">
+            <label htmlFor="estimated-price" className="text-xs font-semibold text-neutral-800">
+              Valor estimado de venda
+            </label>
+            <input
+              id="estimated-price"
+              name="Valor estimado"
+              placeholder="Ex.: R$ 800.000"
+              className="w-full rounded-lg border border-neutral-300 px-3 py-2 text-sm outline-none ring-emerald-500 focus:border-emerald-500 focus:ring-1"
+            />
+          </div>
+          <div className="space-y-1">
+            <label htmlFor="details" className="text-xs font-semibold text-neutral-800">
+              Detalhes do imóvel
             </label>
             <textarea
-              id="preferences"
-              name="Preferências"
+              id="details"
+              name="Detalhes do imóvel"
               rows={4}
               className="w-full resize-none rounded-lg border border-neutral-300 px-3 py-2 text-sm outline-none ring-emerald-500 focus:border-emerald-500 focus:ring-1"
             />
@@ -126,6 +125,6 @@ function EncontramosParaVocePage() {
   )
 }
 
-export default EncontramosParaVocePage
+export default ListYourPropertyPage
 
 
