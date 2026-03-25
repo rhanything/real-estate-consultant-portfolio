@@ -1,5 +1,6 @@
 import { createSupabaseClient } from "@/lib/supabase/client"
 import { PropertyCard, type PropertyCardData } from "@/components/property-card/PropertyCard"
+import { PropertiesFilters } from "@/components/properties/PropertiesFilters"
 
 interface PropertyRow {
   id: string
@@ -181,73 +182,12 @@ async function PropertiesPage(props: PropertiesPageProps) {
           Utilize os filtros abaixo para encontrar imóveis por cidade, faixa de valor ou referência.
         </p>
       </header>
-      <section className="mb-6 rounded-2xl border border-neutral-200 bg-white p-4 text-xs text-neutral-800 shadow-sm">
-        <form className="grid gap-3 sm:grid-cols-4" method="GET">
-          <div className="space-y-1">
-            <label htmlFor="city" className="block text-[11px] font-semibold text-neutral-700">
-              Cidade
-            </label>
-            <select
-              id="city"
-              name="city"
-              defaultValue={props.searchParams.city ?? ""}
-              className="w-full rounded-lg border border-neutral-300 px-2.5 py-1.5 text-xs outline-none ring-emerald-500 focus:border-emerald-500 focus:ring-1"
-            >
-              <option value="">Todas</option>
-              <option value="Ribeirão Preto">Ribeirão Preto</option>
-              <option value="Brodowski">Brodowski</option>
-              <option value="Jardinópolis">Jardinópolis</option>
-              <option value="Pitangueiras">Pitangueiras</option>
-              <option value="Serrana">Serrana</option>
-              <option value="Sertãozinho">Sertãozinho</option>
-            </select>
-          </div>
-          <div className="space-y-1">
-            <label htmlFor="minPrice" className="block text-[11px] font-semibold text-neutral-700">
-              Valor mín. (R$)
-            </label>
-            <input
-              id="minPrice"
-              name="minPrice"
-              defaultValue={props.searchParams.minPrice ?? ""}
-              placeholder="300000"
-              className="w-full rounded-lg border border-neutral-300 px-2.5 py-1.5 text-xs outline-none ring-emerald-500 focus:border-emerald-500 focus:ring-1"
-            />
-          </div>
-          <div className="space-y-1">
-            <label htmlFor="maxPrice" className="block text-[11px] font-semibold text-neutral-700">
-              Valor máx. (R$)
-            </label>
-            <input
-              id="maxPrice"
-              name="maxPrice"
-              defaultValue={props.searchParams.maxPrice ?? ""}
-              placeholder="800000"
-              className="w-full rounded-lg border border-neutral-300 px-2.5 py-1.5 text-xs outline-none ring-emerald-500 focus:border-emerald-500 focus:ring-1"
-            />
-          </div>
-          <div className="space-y-1">
-            <label htmlFor="reference" className="block text-[11px] font-semibold text-neutral-700">
-              Referência
-            </label>
-            <input
-              id="reference"
-              name="reference"
-              defaultValue={props.searchParams.reference ?? ""}
-              placeholder="REF-101"
-              className="w-full rounded-lg border border-neutral-300 px-2.5 py-1.5 text-xs outline-none ring-emerald-500 focus:border-emerald-500 focus:ring-1"
-            />
-          </div>
-          <div className="flex items-end justify-end sm:col-span-4">
-            <button
-              type="submit"
-              className="inline-flex items-center rounded-full bg-emerald-600 px-4 py-1.5 text-xs font-semibold text-white transition hover:bg-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2"
-            >
-              Aplicar filtros
-            </button>
-          </div>
-        </form>
-      </section>
+      <PropertiesFilters
+        initialCity={props.searchParams.city}
+        initialMinPrice={props.searchParams.minPrice}
+        initialMaxPrice={props.searchParams.maxPrice}
+        initialReference={props.searchParams.reference}
+      />
       <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {properties.map((property) => (
           <PropertyCard key={property.id} property={property} />
